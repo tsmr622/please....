@@ -60,6 +60,17 @@ export default function App() {
     // 페이지 모드 감지 함수
     const detectPageMode = async () => {
         try {
+            // 로그인 상태 확인
+            const result = await new Promise((resolve) => {
+                chrome.storage.local.get(['token'], resolve);
+            });
+
+            if (!result.token) {
+                // 로그인되지 않은 경우 기본 페이지로 설정
+                setPageMode(PAGE_MODES.DEFAULT);
+                return;
+            }
+
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
             const currentTab = tabs[0];
             if (!currentTab?.url) return;
@@ -96,6 +107,7 @@ export default function App() {
             // 유튜브 페이지 감지
             if (url.includes('youtube.com/watch') || url.includes('youtube.com/shorts')) {
                 setPageMode(PAGE_MODES.YOUTUBE);
+                chrome.runtime.sendMessage({ type: "YOUTUBE_DETECTED", url: url});
                 return;
             }
 

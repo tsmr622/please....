@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package youtubesummary;
+
+message YoutubeSummaryRequest {
+  string user_id = 1;
+  string youtubeUrl = 2;
+}
+
+message YoutubeSummaryResponse {
+  string content = 1;
+  bool is_final = 2;
+}
+
+service YoutubeSummaryService {
+  rpc YoutubeSummary (YoutubeSummaryRequest) returns (stream YoutubeSummaryResponse);
+}

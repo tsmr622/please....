@@ -25,13 +25,20 @@ services:
     env_file:
       - .env
 
+  llm-worker-youtube:
+    build: ./llm-worker-youtube
+    ports:
+      - "50052:50052"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    env_file:
+      - .env
+
   mysql:
     image: mysql:8.0
     environment:
-      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_ROOT_PASSWORD=destiny12586!
       - MYSQL_DATABASE=penseur_db
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=user_password
     ports:
       - "3306:3306"
     volumes:

@@ -16,6 +16,13 @@
     --text-primary: #212529;
     --text-secondary: #6c757d;
     --scrollbar-thumb: #dee2e6;
+    --primary-color: #00CE93;
+    --primary-hover: #007A5A;
+    --disabled-color: #6c757d;
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --error-border: #f5c6cb;
+    --card-bg: #ffffff;
   }
   
   [data-theme="dark"] {
@@ -36,4 +43,11 @@
     --text-primary: rgba(255, 255, 255, 0.87);
     --text-secondary: #808080;
     --scrollbar-thumb: #1F2020;
+    --primary-color: #00CE93;
+    --primary-hover: #00B67A;
+    --disabled-color: #808080;
+    --error-bg: #2d1b1b;
+    --error-text: #f8d7da;
+    --error-border: #721c24;
+    --card-bg: #282828;
   }

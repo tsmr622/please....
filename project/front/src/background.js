@@ -1,4 +1,5 @@
 import { collect } from './utils/browserCollector.js';
+import { youtubeCollector } from './utils/youtubeCollector.js';
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
@@ -106,6 +107,44 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     });
     return true; // async 응답
   }
+
+  if (msg.type === "YOUTUBE_DETECTED") {
+    console.log("[YOUTUBE_DETECTED"); {
+      // 로그인 상태 확인
+      chrome.storage.local.get(['token'], (result) => {
+        const token = result.token;
+        if (!token) {
+          console.log("로그인 필요해!!!");
+          sendResponse({ statue: "login_required", error: "Login required"});
+          return;
+        }
+
+        // async 함수 정의, 실행
+        (async () => {
+          try {
+            const youtubeUrl = msg.url;
+            const response = await fetch("http://localhost:8000/collect/youtube", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+              },
+              body: JSON.stringify({ youtube_url: youtubeUrl }),
+            });
+
+            const result = await response.json();
+            console.log("추출된 URL:", result);
+            sendResponse({ status: "success", result: result});
+          } catch (error) {
+            console.error("URL 전송 중 오류:", error);
+            sendResponse({ status: "error", error: error.message });
+          }
+        })();
+      });
+      return true;
+    }
+  }
+
 
 
 
