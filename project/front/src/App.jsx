@@ -107,7 +107,6 @@ export default function App() {
             // 유튜브 페이지 감지
             if (url.includes('youtube.com/watch') || url.includes('youtube.com/shorts')) {
                 setPageMode(PAGE_MODES.YOUTUBE);
-                chrome.runtime.sendMessage({ type: "YOUTUBE_DETECTED", url: url});
                 return;
             }
 

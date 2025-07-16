@@ -1,4 +1,4 @@
-/* 공통 스크롤바 스타일 */
+ /* 공통 스크롤바 스타일 */
 .custom-scrollbar {
   scrollbar-width: thin;              /* Firefox */
   scrollbar-color: var(--scrollbar-thumb) var(--bg-primary);      /* Firefox */

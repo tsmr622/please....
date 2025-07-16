@@ -28,6 +28,7 @@ export function WebSocketProvider({ children }) {
       ws.onmessage = (event) => {
         try {
           const data = JSON.parse(event.data);
+          console.log("[WebSocket] 데이터 수신:", data);
           setMessages(prev => [...prev, data]);
         } catch (e) {
           console.error("WebSocket 메시지 파싱 오류:", e);

@@ -71,7 +71,7 @@ __RECOMMEND|||...(동일 포맷 4번 더 반복, 총 5개의 RECOMMEND)
         ],
         max_tokens=4096,
         temperature=0.7,
-        stream=True
+        stream=False
     )
     for chunk in response:
         delta = chunk["choices"][0]["delta"]

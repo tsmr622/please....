@@ -36,6 +36,11 @@ async def collect_youtube(req: YoutubeUrlReq,
 
     print(f"[COLLECT YOUTUBE] url={req.youtube_url}", flush=True)
 
+    # trigger_type 추출
+    body = await request.json()
+    trigger_type = body.get("trigger_type", "unknown")
+    print(f"[COLLECT] trigger_type={trigger_type} url={req.youtube_url}", flush=True)
+
     # YouTube URL을 gRPC로 전송
     async for chunk in youtube_client.youtubesummary_stream(user_id, req.youtube_url):
         print(chunk, flush=True)

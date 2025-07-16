@@ -1,7 +1,21 @@
 .youtube-summary-page {
-  padding: 20px;
-  height: 100vh;
+  padding: 0.7rem;
+  height: calc(100vh - 64px);
   overflow-y: auto;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: -1.4rem;
+}
+
+.logo {
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
 .youtube-summary-page h2 {
@@ -63,7 +77,8 @@
 
 .summary-container h3 {
   margin-bottom: 16px;
-  color: var(--text-primary);
+  color: #00ff99;
+  font-weight: bold;
 }
 
 .summary-content {
@@ -83,4 +98,62 @@
 
 .summary-content p:last-child {
   margin-bottom: 0;
-} 
+}
+
+.summarize-button-left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  color: #00ff99;
+  font-weight: bold;
+}
+
+.result-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: left;
+  padding-bottom: 43px;
+}
+
+
+.youtube-summary-page .card-summary {
+  background-color: var(--accent-primary);
+  filter: drop-shadow(0 0 0.2em var(--text-primary));
+  border: 1px solid var(--accent-secondary);
+  font-weight:700;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 20px 18px;
+  border: none;
+}
+
+.youtube-summary-page .card-comment,
+.youtube-summary-page .card-timeline,
+.youtube-summary-page .Card {
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  margin-bottom: 16px;
+  padding: 20px 18px;
+  border: none;
+}
+.timeline-entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;   /* 카드 간 여백 */
+  line-height: 1.5;
+}
+
+.timeline-time {
+  width: 60px;           /* 시간 고정 폭 */
+  flex-shrink: 0;
+  font-weight: bold;
+  color: #aaa;           /* 시간은 살짝 연하게 (선택 사항) */
+}
+
+.timeline-text {
+  flex: 1;
+  white-space: pre-wrap; /* 자동 줄바꿈 */
+}
