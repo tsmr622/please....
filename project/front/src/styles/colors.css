@@ -16,17 +16,10 @@
     --text-primary: #212529;
     --text-secondary: #6c757d;
     --scrollbar-thumb: #dee2e6;
-    --primary-color: #00CE93;
-    --primary-hover: #007A5A;
-    --disabled-color: #6c757d;
-    --error-bg: #f8d7da;
-    --error-text: #721c24;
-    --error-border: #f5c6cb;
-    --card-bg: #ffffff;
+    --scrollbar-thumb-hover: #EDF2FA;
   }
-  
+
   [data-theme="dark"] {
-    /* 다크모드 */
     --bg-primary: #282828;
     --bg-secondary: #1F2020;
     --bg-third: #1e2a25;
@@ -39,15 +32,11 @@
     --accent-secondary: #B3FFE0;
     --accent-secondary-hover: #8fbf86;
     --accent-shadow: #00CE93aa;
-    --button-bg: #2d313a;
+    --button-bg: #000000;/*#1B2020;*/
+    --button-bg-hover: rgb(10, 22, 17);
+    --button-bd-hover: rgb(93, 141, 84);
     --text-primary: rgba(255, 255, 255, 0.87);
     --text-secondary: #808080;
     --scrollbar-thumb: #1F2020;
-    --primary-color: #00CE93;
-    --primary-hover: #00B67A;
-    --disabled-color: #808080;
-    --error-bg: #2d1b1b;
-    --error-text: #f8d7da;
-    --error-border: #721c24;
-    --card-bg: #282828;
+    --scrollbar-thumb-hover: #3C3C3C;
   }

@@ -25,7 +25,7 @@
 
 .youtube-summary-page p {
   margin-bottom: 20px;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .summarize-button {
@@ -58,7 +58,7 @@
 }
 
 .loading-container p {
-  color: var(--text-secondary);
+  color: var(--text-primary);
   text-align: center;
 }
 
@@ -105,7 +105,7 @@
   bottom: 20px;
   left: 20px;
   z-index: 1000;
-  color: #00ff99;
+  color: var(--accent-primary);
   font-weight: bold;
 }
 
@@ -129,8 +129,28 @@
   border: none;
 }
 
-.youtube-summary-page .card-comment,
-.youtube-summary-page .card-timeline,
+.card-comment {
+  background-color: var(--bg-comment);
+  filter: drop-shadow(0 0 0.2em var(--text-primary));
+}
+
+.youtube-summary-page .card-comment{
+  background-color: var(--bg-comment);
+  filter: drop-shadow(0 0 0.2em var(--text-primary));
+}
+
+.youtube-summary-page .card-summary{
+  background-color: var(--accent-primary);
+  filter: drop-shadow(0 0 0.2em var(--text-primary));
+  border: 1px solid var(--accent-secondary);
+  font-weight:700;
+}
+
+.youtube-summary-page .card-timeline {
+  background-color: var(--bg-comment); /* COMMENT와 동일하게 */
+  filter: drop-shadow(0 0 0.2em var(--text-primary));
+}
+
 .youtube-summary-page .Card {
   color: #fff;
   border-radius: 12px;
@@ -139,21 +159,29 @@
   padding: 20px 18px;
   border: none;
 }
+
 .timeline-entry {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 16px;   /* 카드 간 여백 */
-  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 70px 1fr;  /* 시간 고정, 텍스트 유동 */
+  align-items: start;
+  gap: 12px;                        /* 시간과 텍스트 간 여백 */
+  margin-bottom: 16px;
+  line-height: 1.6;
 }
 
 .timeline-time {
-  width: 60px;           /* 시간 고정 폭 */
-  flex-shrink: 0;
   font-weight: bold;
-  color: #aaa;           /* 시간은 살짝 연하게 (선택 사항) */
+  color: #aaa;
+  text-align: right;               /* 시간 오른쪽 정렬 */
+  white-space: nowrap;
 }
 
 .timeline-text {
-  flex: 1;
+  white-space: pre-wrap;
+  word-break: keep-all;
   white-space: pre-wrap; /* 자동 줄바꿈 */
+}
+
+.summarize-button-left .gen_summary_text {
+  color: var(--accent-primary);
 }

@@ -145,7 +145,14 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     }
   }
 
-
-
+  // SEEK_TO 메시지 처리 추가
+  if (msg.type === "SEEK_TO") {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      const tab = tabs[0];
+      if (tab && tab.id) {
+        chrome.tabs.sendMessage(tab.id, { type: "SEEK_TO", seconds: msg.seconds });
+      }
+    });
+  }
 
 });
